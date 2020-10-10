@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Ubuntu, arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Navigation */
+.navbar-item {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: #999;
+}
+
+.navbar-item:hover {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Upload frame*/
+.frame {
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: linear-gradient(to top right, #0062ED 0%, #EC003E 100%);
+    color: #333;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.center {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 260px;
+    border-radius: 3px;
+    box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.title {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #999;
+    text-align: center;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: 300;
+    color: #666;
+}
+
+.dropzone {
+    width: 100px;
+    height: 80px;
+    border: 1px dashed #999;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.upload-icon {
+    margin: 25px 2px 2px 2px;
+}
+
+.upload-input {
+    position: relative;
+    top: -62px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.btn {
+    display: block;
+    width: 140px;
+    height: 40px;
+    background: darkmagenta;
+    color: #fff;
+    border-radius: 3px;
+    border: 0;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: rebeccapurple;
+}
+
+/* Footer*/
+.page-footer {
+    background-color: rgb(38, 50, 56);
+}
+
+.footer-copyright {
+    background-color: rgb(30, 40, 45);
+    color: rgb(142, 134, 123);
+}
+
+.footer-copyright a {
+    color: rgb(255, 255, 255);
+}
+
+.btn-social {
+    font-size: 20px;
+    line-height: 50px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    margin: 5px 2px;
+    display: inline-block;
+    border-radius: 50%;
+    color: white;
+    box-shadow: 5px 5px 10px 8px black;
+}
+
+.btn-social:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-social:hover {
+    opacity: 0.7;
+    text-transform: none;
+}
+
+.btn-facebook {
+    background-color: #3B5998;
+
+}
+
+.btn-google {
+    background-color: #dd4b39;
+}
+
+.btn-linkedin {
+    background-color: #007bb5;
+}
+
+.btn-github {
+    background-color: rgb(43, 43, 43);
+}
+
+.lh-condensed {
+    line-height: 1.25;
+}
+
+@media (max-width: 720px) {
+    .frame {
+        width: 340px;
+        height: 340px;
+
+    }
+    .center {
+        width: 260px;
+        height: 240px;
+
+    }
+}
