@@ -11,7 +11,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
-    <title>Hello, world!</title>
+    <title>File server</title>
 </head>
 <body>
 <!-- Header -->
@@ -56,27 +56,45 @@
                 <div th:if="${message}">
                     <h2 th:text="${message}"/>
                 </div>
+                <div>
+                    <form method="POST" enctype="multipart/form-data" action="/">
+                        <table>
+                            <tr>
+                                <td>File to upload:</td>
+                                <td><input type="file" name="file"/></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="submit" value="Upload"/></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <!--                <form action="POST" enctype="multipart/form-data">-->
+                <!--                    <div class="frame m-4">-->
+                <!--                        <div class="center">-->
+                <!--                            <div class="title">-->
+                <!--                                <h1>Drop file to upload</h1>-->
+                <!--                            </div>-->
 
-                <form action="POST" enctype="multipart/form-data">
-                    <div class="frame m-4">
-                        <div class="center">
-                            <div class="title">
-                                <h1>Drop file to upload</h1>
-                            </div>
+                <!--                            <div class="dropzone">-->
+                <!--                                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon"/>-->
+                <!--                                <input type="file" name="file" class="upload-input" required/>-->
+                <!--                            </div>-->
 
-                            <div class="dropzone">
-                                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon"/>
-                                <input type="file" name="file" class="upload-input" required/>
-                            </div>
+                <!--                            <button type="submit" class="btn" name="Upload">Upload file</button>-->
 
-                            <button type="submit" class="btn" name="Upload">Upload file</button>
-
-                        </div>
-                    </div>
-                </form>
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </form>-->
             </div>
             <div class="col">
-
+                <div>
+                    <ul>
+                        <li th:each="file : ${files}"></li>
+                        <a th:href="${file}" th:text="${file}"></a>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
