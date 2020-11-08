@@ -53,40 +53,37 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div th:if="${message}">
-                    <h2 th:text="${message}"/>
-                </div>
-                <div>
-                    <form method="POST" enctype="multipart/form-data" action="/">
-                        <table>
-                            <tr>
-                                <td>File to upload:</td>
-                                <td><input type="file" name="file"/></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><input type="submit" value="Upload"/></td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-                <!--                <form action="POST" enctype="multipart/form-data">-->
-                <!--                    <div class="frame m-4">-->
-                <!--                        <div class="center">-->
-                <!--                            <div class="title">-->
-                <!--                                <h1>Drop file to upload</h1>-->
-                <!--                            </div>-->
-
-                <!--                            <div class="dropzone">-->
-                <!--                                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon"/>-->
-                <!--                                <input type="file" name="file" class="upload-input" required/>-->
-                <!--                            </div>-->
-
-                <!--                            <button type="submit" class="btn" name="Upload">Upload file</button>-->
-
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </form>-->
+                <!--                <div th:if="${message}">-->
+                <!--                    <h2 th:text="${message}"/>-->
+                <!--                </div>-->
+                <!--                <div>-->
+                <!--                    <form method="POST" enctype="multipart/form-data" action="/">-->
+                <!--                        <table>-->
+                <!--                            <tr>-->
+                <!--                                <td>File to upload:</td>-->
+                <!--                                <td><input type="file" name="file"/></td>-->
+                <!--                            </tr>-->
+                <!--                            <tr>-->
+                <!--                                <td></td>-->
+                <!--                                <td><input type="submit" value="Upload"/></td>-->
+                <!--                            </tr>-->
+                <!--                        </table>-->
+                <!--                    </form>-->
+                <!--                </div>-->
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <div class="frame m-4">
+                        <div class="center">
+                            <div class="title">
+                                <h1 id="file-name">Drop file to upload</h1>
+                            </div>
+                            <div class="dropzone">
+                                <img alt="image" src="http://100dayscss.com/codepen/upload.svg" class="upload-icon"/>
+                                <input id="upload-input" type="file" name="file" class="upload-input" required/>
+                            </div>
+                            <button id="uploadFileButton" type="submit" class="btn" name="Upload">Upload file</button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col">
                 <div>

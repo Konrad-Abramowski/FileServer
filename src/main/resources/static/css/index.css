@@ -73,7 +73,7 @@ h1 {
 }
 
 .dropzone {
-    width: 100px;
+    width: 200px;
     height: 80px;
     border: 1px dashed #999;
     border-radius: 3px;
