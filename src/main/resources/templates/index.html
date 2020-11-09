@@ -86,10 +86,12 @@
                 </form>
             </div>
             <div class="col">
-                <div>
+                <div class="m-4">
                     <ul>
-                        <li th:each="file : ${files}"></li>
-                        <a th:href="${file}" th:text="${file}"></a>
+                        <li id="fileName" class="m-1"></li>
+                        <a id="fileUrl" class="m-1" href=""></a>
+                        <p class="m-1"></p>
+                        <p class="m-1"></p>
                     </ul>
                 </div>
             </div>
