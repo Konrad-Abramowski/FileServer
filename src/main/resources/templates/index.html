@@ -53,24 +53,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <!--                <div th:if="${message}">-->
-                <!--                    <h2 th:text="${message}"/>-->
-                <!--                </div>-->
-                <!--                <div>-->
-                <!--                    <form method="POST" enctype="multipart/form-data" action="/">-->
-                <!--                        <table>-->
-                <!--                            <tr>-->
-                <!--                                <td>File to upload:</td>-->
-                <!--                                <td><input type="file" name="file"/></td>-->
-                <!--                            </tr>-->
-                <!--                            <tr>-->
-                <!--                                <td></td>-->
-                <!--                                <td><input type="submit" value="Upload"/></td>-->
-                <!--                            </tr>-->
-                <!--                        </table>-->
-                <!--                    </form>-->
-                <!--                </div>-->
-                <form action="/upload" method="POST" enctype="multipart/form-data">
+                <form>
                     <div class="frame m-4">
                         <div class="center">
                             <div class="title">
@@ -80,18 +63,16 @@
                                 <img alt="image" src="http://100dayscss.com/codepen/upload.svg" class="upload-icon"/>
                                 <input id="upload-input" type="file" name="file" class="upload-input" required/>
                             </div>
-                            <button id="uploadFileButton" type="submit" class="btn" name="Upload">Upload file</button>
+                            <button id="uploadFileButton" onclick="addFile('upload-input')" type="button" class="btn"
+                                    name="Upload">Upload file
+                            </button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="col">
                 <div class="m-4">
-                    <ul>
-                        <li id="fileName" class="m-1"></li>
-                        <a id="fileUrl" class="m-1" href=""></a>
-                        <p class="m-1"></p>
-                        <p class="m-1"></p>
+                    <ul id="fileList">
                     </ul>
                 </div>
             </div>
