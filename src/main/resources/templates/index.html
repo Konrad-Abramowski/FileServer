@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,16 +13,16 @@
 
     <title>Print server</title>
 </head>
-<body class="min-vh-100">
+<body>
 <!-- Success Modal HTML -->
-<div id="successModal" class="container modal fade">
+<div id="successModal" class="modal fade">
     <div class="modal-dialog modal-confirm">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
                 <div class="icon-box">
                     <i class="far fa-check-circle"></i>
                 </div>
-                <button type="button" class="close" onclick="reloadPage()" data-dismiss="modal" aria-hidden="true">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
                 </button>
             </div>
@@ -30,7 +30,7 @@
                 <h4>Great!</h4>
                 <p>File has been uploaded successfully.</p>
                 <div class="d-flex justify-content-center">
-                    <button class="btn btn-success" onclick="reloadPage()" data-dismiss="modal">
+                    <button class="btn btn-success" data-dismiss="modal">
                         <div class="d-flex justify-content-center align-items-center">
                             <span class="font-weight-bold">Go back</span> <i class="fas fa-arrow-right"></i>
                         </div>
@@ -63,8 +63,9 @@
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
             <a href="/" class="navbar-brand">
-                <i class="fas fa-server m-1 "></i>
-                <strong>PrintServer</strong>
+                <h1>
+                    <i class="fas fa-server m-1 "></i>PrintServer
+                </h1>
             </a>
             <a href="" class="navbar-item text"></a>
             <a href="" class="navbar-item"></a>
@@ -75,36 +76,41 @@
         </div>
     </div>
 </header>
-<main style="margin-bottom: 30vh">
+<main>
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 d-flex flex-column">
-                <form>
-                    <div class="frame my-2 mx-auto">
-                        <div class="center">
-                            <div class="title">
-                                <h1 id="file-name">Drop file to upload</h1>
-                            </div>
-                            <div class="dropzone">
-                                <img alt="image" src="http://100dayscss.com/codepen/upload.svg" class="upload-icon"/>
-                                <input id="upload-input" type="file" name="files[]" class="upload-input" multiple/>
-                            </div>
-                            <button id="uploadFileButton" onclick="addFile('upload-input')" type="button"
-                                    class="upload-button"
-                                    name="Upload">Upload file
-                            </button>
-                        </div>
+        <div class="row d-flex flex-column">
+            <form class="col-12 frame my-4 mx-auto upload-form">
+                <fieldset class="upload-form__content">
+<!--                    <h2 class="upload-form__title">Please, drop your data, in the box bellow</h2>-->
+                    <div class="upload-form__drop-spot">
+                        <p class="upload-form__file-name" id="file-name"></p>
+                        <i class="fas fa-cloud-upload-alt upload-form__cloud-ico"></i>
+                        <input id="upload-input" type="file" name="files[]" class="upload-form__file-input upload-input" multiple/>
                     </div>
-                </form>
-                <button type="button" class="btn btn-dark btn-block" onclick="printAllFiles()">Print all files</button>
-            </div>
-            <div class="col-md-6">
-                <div class="">
-                    <div id="fileList">
+                    <div class="upload-form__utils upload-utils">
+                        <button id="uploadFileButton" type="button"
+                                class="upload-utils__btn btn btn-primary" name="Upload">Upload <i
+                                class="fas fa-file-upload"></i>
+                        </button>
+                        <button type="button" class="btn btn-dark upload-utils__btn upload-utils__print-all">Print All<i
+                                class="fas fa-print"></i>
+                        </button>
                     </div>
-                </div>
-            </div>
+                </fieldset>
+            </form>
         </div>
+        <ul id="fileList" class="row file-list">
+            <li class="card my-2 col-12 file-list__item file-list__item--template">
+                <div class="card-body ">
+                    <div class="d-flex">
+                        <h5 class="card-title d-inline mr-auto overflow-hidden file-item__title"></h5>
+                        <button class="btn btn-danger d-inline ml-auto file-item__delete-btn" type="button">Delete</button>
+                    </div>
+                    <h6 class="card-subtitle file-item__subtitle"></h6>
+                    <a class="card-link d-inline-block pt-2 file-item__download" >Download file</a>
+                </div>
+            </li>
+        </ul>
     </div>
 </main>
 <!-- Footer -->
@@ -166,6 +172,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script src="js/index.js" type="text/javascript"></script>
+<script type="module" src="js/index.js" ></script>
 </body>
 </html>
