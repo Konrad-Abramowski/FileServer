@@ -11,18 +11,20 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
-    <title>File server</title>
+    <title>Print server</title>
 </head>
-<body>
+<body class="min-vh-100">
 <!-- Success Modal HTML -->
-<div id="successModal" class="modal fade">
+<div id="successModal" class="container modal fade">
     <div class="modal-dialog modal-confirm">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
                 <div class="icon-box">
                     <i class="far fa-check-circle"></i>
                 </div>
-                <button type="button" class="close" onclick="reloadPage()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <button type="button" class="close" onclick="reloadPage()" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
             </div>
             <div class="modal-body text-center">
                 <h4>Great!</h4>
@@ -41,7 +43,7 @@
 <!-- Header -->
 <header>
     <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container col-12 ">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-8 px-5 my-4">
                     <h4 class="text-white">About</h4>
@@ -59,10 +61,10 @@
         </div>
     </div>
     <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="col-12 d-flex flex-row">
+        <div class="container d-flex justify-content-between">
             <a href="/" class="navbar-brand">
                 <i class="fas fa-server m-1 "></i>
-                <strong>FileServer</strong>
+                <strong>PrintServer</strong>
             </a>
             <a href="" class="navbar-item text"></a>
             <a href="" class="navbar-item"></a>
@@ -73,39 +75,40 @@
         </div>
     </div>
 </header>
-<main>
+<main style="margin-bottom: 30vh">
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-md-6 d-flex flex-column">
                 <form>
-                    <div class="frame m-4">
+                    <div class="frame my-2 mx-auto">
                         <div class="center">
                             <div class="title">
                                 <h1 id="file-name">Drop file to upload</h1>
                             </div>
                             <div class="dropzone">
                                 <img alt="image" src="http://100dayscss.com/codepen/upload.svg" class="upload-icon"/>
-                                <input id="upload-input" type="file" name="file" class="upload-input" required/>
+                                <input id="upload-input" type="file" name="files[]" class="upload-input" multiple/>
                             </div>
-                            <button id="uploadFileButton" onclick="addFile('upload-input')" type="button" class="btn"
+                            <button id="uploadFileButton" onclick="addFile('upload-input')" type="button"
+                                    class="upload-button"
                                     name="Upload">Upload file
                             </button>
                         </div>
                     </div>
                 </form>
+                <button type="button" class="btn btn-dark btn-block" onclick="printAllFiles()">Print all files</button>
             </div>
-            <div class="col">
-                <div class="m-4">
-                    <ul id="fileList">
-                    </ul>
+            <div class="col-md-6">
+                <div class="">
+                    <div id="fileList">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </main>
 <!-- Footer -->
-<footer class="fixed-bottom page-footer font-small  pt-4">
+<footer class="fixed-bottom page-footer font-small  pt-4 mt-auto">
 
     <!-- Footer Elements -->
     <div class="container">

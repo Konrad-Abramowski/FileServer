@@ -1,12 +1,14 @@
 package com.example.fileserver.model;
 
 public class ResponseFile {
+    private String id;
     private String name;
     private String url;
     private String type;
     private long size;
 
-    public ResponseFile(String name, String url, String type, long size) {
+    public ResponseFile(String id, String name, String url, String type, long size) {
+        this.id = id;
         this.name = name;
         this.url = url;
         this.type = type;
@@ -43,5 +45,13 @@ public class ResponseFile {
 
     public void setSize(long size) {
         this.size = size;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
