@@ -9,6 +9,15 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    min-height: 100vh;
+    background: linear-gradient(to top right, #0062ED 0%, #EC003E 100%);
+}
+
+main {
+    padding-bottom: 156px;
+}
+
 /* modal-confirm*/
 .modal-confirm {
     color: #434e65;
@@ -77,7 +86,6 @@ html {
 
 .modal-confirm .btn, .modal-confirm .btn:active {
     color: #fff;
-    border-radius: 4px;
     background: #eeb711 !important;
     text-decoration: none;
     transition: all 0.4s;
@@ -127,24 +135,15 @@ html {
 
 /*!* Upload frame*!*/
 .frame {
-
     width: 100%;
     height: 500px;
-
     border-radius: 2px;
-    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    background: linear-gradient(to top right, #0062ED 0%, #EC003E 100%);
     color: #333;
     font-family: "Open Sans", Helvetica, sans-serif;
 }
 
-.center {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
+.upload-form {
     height: 400px;
     border-radius: 3px;
     box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
@@ -153,6 +152,37 @@ html {
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
+}
+
+.upload-form__content {
+    width: 100%;
+    padding: 32px 17px 0 17px;
+}
+
+.upload-form__drop-spot {
+    position: relative;
+    height: 160px;
+    border: 1px dashed #999;
+    border-radius: 3px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-form__file-name {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    margin-right: .75em;
+}
+
+.upload-form__cloud-ico {
+    font-size: 2.25em;
+}
+
+.upload-form__utils {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .title {
@@ -168,46 +198,39 @@ h1 {
     color: #666;
 }
 
-.dropzone {
-    width: 70%;
-    height: 160px;
-    border: 1px dashed #999;
-    border-radius: 3px;
-    text-align: center;
-}
-
 .upload-icon {
     margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }
 
 .upload-input {
-    position: relative;
-    top: -62px;
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
 }
 
-.upload-button {
-    display: block;
-    width: 140px;
-    height: 40px;
-    background: darkmagenta;
-    color: #fff;
-    border-radius: 3px;
-    border: 0;
-    transition: all 0.3s ease-in-out;
-    font-size: 14px;
+.upload-utils__btn {
+    margin: 16px 0;
 }
 
-.upload-button:hover {
-    background: rebeccapurple;
+.upload-utils__btn:not(:first-child) {
+    margin-left: .75em;
+}
+
+.upload-utils__btn .fas {
+    margin-left: .5em;
+}
+/* Nav */
+.navbar-brand h1 {
+    color: #fff;
+    margin-bottom: 0;
+    font-size: 1em;
+}
+
+.navbar-brand .fas {
+    margin-right: .75rem !important;
 }
 
 /* Footer*/
@@ -233,8 +256,8 @@ h1 {
     margin: 5px 2px;
     display: inline-block;
     border-radius: 50%;
-    color: white;
-    box-shadow: 5px 5px 10px 8px black;
+    color: #fff;
+    box-shadow: 0 0 26px -8px #000;
 }
 
 .btn-social:hover {
@@ -268,6 +291,11 @@ h1 {
     line-height: 1.25;
 }
 
+/* Card item */
+.file-list__item--template {
+    display: none;
+}
+
 @media (max-width: 720px) {
     .frame {
         width: 100%;
@@ -279,8 +307,7 @@ h1 {
         height: 90%;
 
     }
-    .dropzone{
-        width: 70%;
+    .upload-form__drop-spot{
         height: 120px;
     }
     .main{
