@@ -52,16 +52,18 @@ public class FileStorageController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<?> uploadFiles(@RequestParam("file") MultipartFile[] files) {
         String message = "";
+        var response = new ResponseFile[files.length];
         try {
-            storageService.store(file);
-
-            message = "Uploaded the file successfully: " + file.getOriginalFilename();
-            return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
+            for (int i = 0; i < files.length; i++) {
+                var addedFile = storageService.store(files[i]);
+                response[i] = new ResponseFile(addedFile);
+                var result = new ResponseFile(addedFile);
+            }
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         } catch (Exception e) {
-            message = "Could not upload the file: " + file.getOriginalFilename() + "!";
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Uploading file failed");
         }
     }
 

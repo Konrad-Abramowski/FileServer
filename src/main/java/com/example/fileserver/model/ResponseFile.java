@@ -1,5 +1,8 @@
 package com.example.fileserver.model;
 
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 public class ResponseFile {
     private String id;
     private String name;
@@ -7,12 +10,27 @@ public class ResponseFile {
     private String type;
     private long size;
 
+    public ResponseFile(){
+
+    }
     public ResponseFile(String id, String name, String url, String type, long size) {
         this.id = id;
         this.name = name;
         this.url = url;
         this.type = type;
         this.size = size;
+    }
+
+    public ResponseFile(File file) {
+        this.id = file.getId();
+        this.name = file.getName();
+        this.url = ServletUriComponentsBuilder
+                .fromCurrentContextPath()
+                .path("/files/")
+                .path(file.getId())
+                .toUriString();
+        this.type = file.getType();
+        this.size = file.getData().length;
     }
 
     public String getName() {
